@@ -58,7 +58,10 @@ var solution_2=n=>{[A,B,C,s,x]=[[],[],[],!8,1];a=b=c=0;--n;while(n){s?0:(A.push(
 // he initializes `a` with 1, and `N` with 2, 3, and 5. he continually chooses the smallest number within `N`, multiplies it by 2, 3, and 5, and adds those results to the set.
 var solution_3=n=>{for(a=[i=1],p=[2,3,5],N=new Set(p);i<n;){if(N.has(x=a[i++]=Math.min(...N)))N.delete(x);p.map(e=>N.add(x*e))}return a[n-1]}
 
-const nthUglyNumber = solution_3;
+// my improvement on alex's one-liner - there was no need for the if statement. we should always delete `x` from `N`
+var solution_4=n=>{for(a=[i=1],p=[2,3,5],N=new Set(p);i<n;){x=a[i++]=Math.min(...N);N.delete(x);p.map(e=>N.add(x*e))}return a[n-1]}
+
+const nthUglyNumber = solution_4;
 
 // const specialTest = (...args) => {
 // };
