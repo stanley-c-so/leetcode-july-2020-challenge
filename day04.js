@@ -54,7 +54,11 @@ function solution_1 (n) {
 // one-liner - basically the above
 var solution_2=n=>{[A,B,C,s,x]=[[],[],[],!8,1];a=b=c=0;--n;while(n){s?0:(A.push(x*2),B.push(x*3),C.push(x*5));m=Math.min(A[a],B[b],C[c]);s=x==m;x=A[a]==m?A[a++]:B[b]==m?B[b++]:C[c++];s?0:--n}return x}
 
-const nthUglyNumber = solution_2;
+// alex mok's one-liner - `a` is the array of found ugly numbers; `x` is current ugly number; `p` is an array used to multiply `x` by 2, 3, and 5; `N` is a set of found but not yet processed ugly numbers.
+// he initializes `a` with 1, and `N` with 2, 3, and 5. he continually chooses the smallest number within `N`, multiplies it by 2, 3, and 5, and adds those results to the set.
+var solution_3=n=>{for(a=[i=1],p=[2,3,5],N=new Set(p);i<n;){if(N.has(x=a[i++]=Math.min(...N)))N.delete(x);p.map(e=>N.add(x*e))}return a[n-1]}
+
+const nthUglyNumber = solution_3;
 
 // const specialTest = (...args) => {
 // };
