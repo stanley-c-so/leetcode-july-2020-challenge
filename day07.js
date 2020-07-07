@@ -62,10 +62,13 @@ function solution_1 (grid) {
 // 1 and see if it's falsey
 var solution_2=g=>{h=g.length;w=g[p=r=0].length;C=(r,c)=>(r<0||r==h||c<0||c==w||!g[r][c])?++p:g[r][c]++-1?0:(C(r+1,c),C(r-1,c),C(r,c+1),C(r,c-1));for(;r<h;++r)for(c=0;c<w;++c)g[r][c]?C(r,c):0;return p}
 
-// alex mok's one-liner - it does not use recursive search. it simply iterates through the grid, and for each cell that is land, it increments the count per non-land neighbor
-var solution_3=(g,z=0,h=(R,C)=>g[R]&&g[R][C]?0:1)=>g.map((r,i)=>r.map((c,j)=>g[i][j]?z+=h(i,j-1)+h(i-1,j)+h(i+1,j)+h(i,j+1):0))&&z
+// thomas luo's one-liner - it does not use recursive search. it simply iterates through the grid, and for each cell that is land, it increments the count per non-land neighbor
+var solution_3=(g,p=0)=>g.map((r,i)=>r.map((c,j)=>p+=g[i][j]&&(!g[i+1]||!g[i+1][j])+(!g[i-1]||!g[i-1][j])+(!g[i][j-1])+(!g[i][j+1])))|p
 
-const islandPerimeter = solution_3;
+// alex mok's one-liner - same idea as thomas' one-liner, but with a helper function that returns 0 if a given location is land, and 1 otherwise
+var solution_4=(g,z=0,h=(R,C)=>g[R]&&g[R][C]?0:1)=>g.map((r,i)=>r.map((c,j)=>g[i][j]?z+=h(i,j-1)+h(i-1,j)+h(i+1,j)+h(i,j+1):0))&&z
+
+const islandPerimeter = solution_4;
 
 // const specialTest = (...args) => {
 // };
