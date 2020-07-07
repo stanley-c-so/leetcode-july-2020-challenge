@@ -68,7 +68,10 @@ var solution_3=(g,p=0)=>g.map((r,i)=>r.map((c,j)=>p+=g[i][j]&&(!g[i+1]||!g[i+1][
 // alex mok's one-liner - same idea as thomas' one-liner, but with a helper function that returns 0 if a given location is land, and 1 otherwise
 var solution_4=(g,z=0,h=(R,C)=>g[R]&&g[R][C]?0:1)=>g.map((r,i)=>r.map((c,j)=>g[i][j]?z+=h(i,j-1)+h(i-1,j)+h(i+1,j)+h(i,j+1):0))&&z
 
-const islandPerimeter = solution_4;
+// thomas' improvement to alex's one-liner - basically a shorter expression in the helper
+var solution_5=(g,p=0,z=(i,j)=>!g[i]||!g[i][j])=>g.map((r,i)=>r.map((c,j)=>p+=g[i][j]&&z(i+1,j)+z(i-1,j)+z(i,j-1)+z(i,j+1)))|p
+
+const islandPerimeter = solution_5;
 
 // const specialTest = (...args) => {
 // };
