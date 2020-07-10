@@ -89,7 +89,7 @@ function solution_1 (head) {
 }
 
 // one-liner - not as efficient as above (O(n^2) in the worst case). the main function is recursive - it doesn't use a helper
-var solution_2=(h,c=h,n,N='next')=>{while(c){n=c[N];if(C=c.child){c[N]=flatten(C);c.child=null;c[N].prev=c;while(x=c[N])c=x;c[N]=n;}n?n.prev=c:0;c=n}return h}
+var solution_2=(h,c=h,n,N='next')=>{while(c){n=c[N];if(C=c.child){c[N]=flatten(C);c.child=null;c[N].prev=c;while(x=c[N])c=x;c[N]=n}n?n.prev=c:0;c=n}return h}
 
 // thomas luo's one-liner - he writes a recursive helper function (`d`) that iterates through a linked list, and dumps nodes in the proper order (recursing on child, if any, before recursing on next)
 // into an outer array (`a`). then, having laid out the nodes in the proper order in `a`, he reconfigures the next/prev pointers of the nodes from within the array, generating the flattened list.
