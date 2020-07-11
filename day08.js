@@ -54,8 +54,8 @@ var solution_2=n=>{o=[];x=n.length;n.sort((a,b)=>a-b);for(i=0;i<x-2;++i){c=n[i];
 
 const threeSum = solution_2;
 
-const specialTest = (nums) => {
-  return threeSum(nums).map(set => set.sort((a, b) => a - b));          // sort the subarrays within the answer
+const specialTest = nums => {
+  return threeSum(nums).map(subarray => subarray.sort((a, b) => a - b));        // sort the subarrays within the answer
 };
 
 // TEST CASES
