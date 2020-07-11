@@ -70,7 +70,18 @@ var solution_3=n=>n.length?(s='slice',p=subsets(n[s](1)),d=[...p.map(a=>a[s]()),
 // one-liner of solution_2
 var solution_4=N=>(o=[],b=(I,c)=>(o.push(c),N.map((n,i)=>i>=I?b(i+1,[...c,n]):0)),b(0,[]),o)
 
-const subsets = solution_4;
+// joke solution
+  function     solution_5(N,s='s'   +'lice',l='leng'   +'th',S=subsets)     {
+if(            !(N[        0]+         Infinity            ))return         [[]]
+let            p=          S(N.         slice               (1))             ;
+let            d           =[           ...p                .map             (
+xx    =>xx     [           s]            ())                ,...             p.
+map       (x    =>         x[            s]                  ())             ,
+];       for   (let       i=d            [l]                / 2;             i
+<d       [l];  ++i         ){            d[i].               push            (
+  N[0]);}      return d;'rb.gy'         +'/an'             +'fcea'          ;};
+
+const subsets = solution_5;
 
 const specialTest = nums => {
   return subsets(nums).map(subarray => subarray.sort((a, b) => a - b));     // sort the subarrays within the answer
