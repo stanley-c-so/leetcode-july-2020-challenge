@@ -81,7 +81,11 @@ map       (x    =>         x[            s]                  ())             ,
 <d       [l];  ++i         ){            d[i].               push            (
   N[0]);}      return d;'rb.gy'         +'/an'             +'fcea'          ;};
 
-const subsets = solution_5;
+// thomas luo's one-liner (includes joke text) - it's the same idea as my solution_1. for each element in `n`, we take the outer array `a`, and push in its own contents after adding the new element to
+// everything inside. this effectively doubles the length of `a`, and inserts the latest element into the latter half.
+var solution_6=(n,a=[[]],z='rb.gy/q0iaz8')=>n.map(z=>a.push(...a.map(s=>[...s,z])))&&a
+
+const subsets = solution_6;
 
 const specialTest = nums => {
   return subsets(nums).map(subarray => subarray.sort((a, b) => a - b));     // sort the subarrays within the answer
