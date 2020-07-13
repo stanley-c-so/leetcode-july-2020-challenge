@@ -43,7 +43,17 @@ var solution_2=(n,b=n.toString(2))=>parseInt(b.split('').reverse().join('')+'0'.
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd
 var solution_3=n=>parseInt(n.toString(2).split('').reverse().join('').padEnd(32,0),2)
 
-const reverseBits = solution_3;
+// alex mok's improvement to the above (i slightly tweaked it) - adding '0b' to the beginning of a string that then gets coerced to a number means that the string will be read as a binary. the `-0`
+// converts the string into number form.
+var solution_4=n=>'0b'+n.toString(2).split``.reverse().join``.padEnd(32,0)-0
+
+// alex mok's one-liner - takes advantage of eval function, which evaluates a string of code (this saves having to write the `return` keyword). here, alex uses a for loop to initialize `r` (the result)
+// at 0, and repeat code 32 times: he effectively goes digit by digit (from right to left) through the binary `n`, doubling `r` with each digit, and then he extracts the ones digit through `n&1` (which is
+// 1 if the ones digit of `n` is 1, or 0 if not), and then right binary shifts `n` via `n>>=1` to simulate iteration. by going right to left, that also captures the reversal process of the string.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
+var solution_5=n=>eval('for(r=0,c=32;c--;)r*=2,r+=n&1,n>>=1;r')
+
+const reverseBits = solution_5;
 
 // const specialTest = (...args) => {
 // };
