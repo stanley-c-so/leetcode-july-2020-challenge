@@ -47,7 +47,10 @@ function solution_1 (hour, minutes) {
 // one-liner - basically the above
 var solution_2=(h,m,d=Math.abs(m*6-h*30-m/2))=>d>180?360-d:d
 
-const angleClock = solution_2;
+// thomas luo's one-liner - basically the above
+var solution_3=(h,m)=>(t=Math.abs(30*h-5.5*m))>180?360-t:
+
+const angleClock = solution_3;
 
 const specialTest = (hour, mins, expected) => {
   return Math.abs(angleClock(hour, mins) - expected) <= 0.00001;        // answers within 10^-5 of the actual value will be accepted as correct
