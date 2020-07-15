@@ -43,7 +43,10 @@ function solution_1 (s) {
 // one-liner - basically the above
 solution_2=s=>s.split` `.filter(w=>w).reverse().join` `
 
-const reverseWords = solution_2;
+// thomas luo's one-liner - using regex
+solution_3=s=>s.trim().split(/\s+/).reverse().join` `
+
+const reverseWords = solution_3;
 
 // const specialTest = (...args) => {
 // };
