@@ -26,8 +26,8 @@ function solution_1 (head, val) {
   return dummy.next;
 }
 
-// one-liner - basically the above. note that ListNode can be instantiated with undefined input since its .val doesn't matter. using `eval` here saves 1 character!
-solution_2=(h,v,c=d=new ListNode(),n=h)=>eval(`while(8){c.next=n;if(!n)break;c=n.val!=v?n:c;n=n.next}d.next`)
+// one-liner - basically the above. note that dummy's .val doesn't matter, so we can substitute it with a regular object with a next property. using `eval` here saves 1 character!
+solution_2=(h,v,c=d={next:n=h})=>eval(`while(8){c.next=n;if(!n)break;c=n.val!=v?n:c;n=n.next}d.next`)
 
 const removeElements = solution_2;
 
