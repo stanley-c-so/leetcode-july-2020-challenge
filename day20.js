@@ -29,7 +29,11 @@ function solution_1 (head, val) {
 // one-liner - basically the above. note that dummy's .val doesn't matter, so we can substitute it with a regular object with a next property. using `eval` here saves 1 character!
 solution_2=(h,v,c=d={next:n=h})=>eval(`while(8){c.next=n;if(!n)break;c=n.val!=v?n:c;n=n.next}d.next`)
 
-const removeElements = solution_2;
+// thomas luo's one-liner - note the use of `z` for recursion. `t` represents the next node. if we assume this function properly filters, then this function (1) joins head to next node (if head not null),
+// (2) recurses on the next node to filter it, and (3) then if the current node is either null or its value is NOT `v`, then we return head, else, we return the next node (thus skipping over this head)
+z=solution_3=(h,v,t=h?h.next=z(h.next,v):9)=>!h||h.val-v?h:t
+
+const removeElements = solution_3;
 
 // const specialTest = (...args) => {
 // };
