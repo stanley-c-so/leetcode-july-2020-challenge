@@ -37,7 +37,13 @@ function solution_1 (root) {
 // one-liner - basically the above
 solution_2=r=>r?eval(`o=[];q=[[r,0]];while(q.length){[n,h]=q.shift();o[h]?0:o[h]=[];o[h].push(n.val);n.left?q.push([n.left,h+1]):0;n.right?q.push([n.right,h+1]):0};o.map((r,i)=>i%2?r.reverse():r)`):[]
 
-const zigzagLevelOrder = solution_2;
+// thomas luo's one-liner - at all times, `q` represents the current row to be processed. `l` represents the current row (as it gets processed) - may be reversed - `n` is the next row. `q` becomes `n`
+solution_3=r=>{z=1;q=r?[r]:[];s=[];while (q.length){l=[];n=[];q.forEach(u=>{l.push(u.val);if(u.left)n.push(u.left);if(u.right)n.push(u.right)});if(!z)l.reverse();s.push(l);z=!z;q=n}return s}
+
+// my improvement on thomas' one-liner
+solution_4=r=>eval(`z=1;q=r?[r]:[];s=[];while(q.length){l=[];n=[];q.forEach(u=>{l.push(u.val);u.left?n.push(u.left):0;u.right?n.push(u.right):0});z?0:l.reverse();s.push(l);z=!z;q=n}s`)
+
+const zigzagLevelOrder = solution_4;
 
 // const specialTest = (...args) => {
 // };
