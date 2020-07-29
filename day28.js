@@ -69,7 +69,10 @@ function solution_1 (tasks, n) {
 // one-liner - basically the above - uses `z` as a "constant" for 25
 solution_2=(T,n,a=Array(26).fill(0),i=z=25,c='charCodeAt')=>eval(`T.map(t=>++a[t[c](0)-'A'[c](0)]);a.sort((A,B)=>A-B);while(i>=0&&a[i]==a[z])--i;Math.max((a[z]-1)*(n+1)+z-i,T.length)`)
 
-const leastInterval = solution_2;
+// alex mok's one-liner
+solution_3=(t,n,T=t.length,h=Array(26).fill(0))=>eval(`for(c of t)h[c.charCodeAt()-65]+=1;h.sort((a,b)=>b-a);z=h[i=0]-1;r=z*n;while(h[++i],i<26)r-=h[i]<z?h[i]:z;r>0?r+T:T`)
+
+const leastInterval = solution_3;
 
 // const specialTest = (...args) => {
 // };
